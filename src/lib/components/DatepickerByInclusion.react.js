@@ -33,7 +33,6 @@ export default class DatepickerByInclusion extends Component {
 
         return (
             <div id={id}>
-                ExampleComponent: &nbsp;
                 <DatePicker
                     selected={this.state.date}
                     onChange={
