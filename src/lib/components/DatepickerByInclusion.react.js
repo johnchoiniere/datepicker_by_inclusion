@@ -19,10 +19,12 @@ export default class DatepickerByInclusion extends Component {
     };
 
     handleChange = date => {
+        const {setProps} = this.props
+
         this.setState({
             date: date
         });
-        this.props.setProps({ date: format(this.state.date, 'yyyy-MM-dd')})
+        setProps({ date: format(date, 'yyyy-MM-dd')})
     };
 
     render() {
