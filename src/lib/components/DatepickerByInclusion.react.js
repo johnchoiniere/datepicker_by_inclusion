@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import DatePicker from 'react-datepicker';
+import { parseISO } from 'date-fns';
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -13,13 +14,15 @@ import "react-datepicker/dist/react-datepicker.css";
  */
 export default class DatepickerByInclusion extends Component {
     render() {
-        const {id, setProps, value} = this.props;
+        const {id, setProps} = this.props;
+        const date = Date.parse(this.props.date);
+        const datesIncluded = this.props.datesIncluded.map(parseISO);
 
         return (
             <div id={id}>
                 ExampleComponent: &nbsp;
-                <input
-                    value={value}
+                <DatePicker
+                    selected={date}
                     onChange={
                         /*
                          * Send the new value to the parent component.
@@ -30,8 +33,9 @@ export default class DatepickerByInclusion extends Component {
                          * app server if a callback uses the modified prop as
                          * Input or State.
                          */
-                        e => setProps({ value: e.target.value })
+                        e => setProps({ date: e.target.date })
                     }
+                    includeDates={datesIncluded}
                 />
             </div>
         );
@@ -49,7 +53,12 @@ DatepickerByInclusion.propTypes = {
     /**
      * The value displayed in the input.
      */
-    value: PropTypes.string,
+    date: PropTypes.string,
+
+    /**
+     * The value displayed in the input.
+     */
+    datesIncluded: PropTypes.array,
 
     /**
      * Dash-assigned callback that should be called to report property changes

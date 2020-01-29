@@ -10,13 +10,13 @@ ExampleComponent is an example component. It takes a property, `label`, and disp
 }
 
 \usage{
-datepickerByInclusion(id=NULL, label=NULL, value=NULL)
+datepickerByInclusion(id=NULL, date=NULL, datesIncluded=NULL)
 }
 
 \arguments{
 \item{id}{Character. The ID used to identify this component in Dash callbacks.}
 
-\item{label}{Character. A label that will be printed when this component is rendered.}
+\item{date}{Character. The value displayed in the input.}
 
-\item{value}{Character. The value displayed in the input.}
+\item{datesIncluded}{Unnamed list. The value displayed in the input.}
 }

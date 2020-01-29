@@ -8,15 +8,16 @@ app = dash.Dash(__name__)
 app.layout = html.Div([
     datepicker_by_inclusion.DatepickerByInclusion(
         id='input',
-        value='my-value'
+        date='2020-01-29',
+        datesIncluded=['2020-01-28','2020-01-29']
     ),
     html.Div(id='output')
 ])
 
 
-@app.callback(Output('output', 'children'), [Input('input', 'value')])
-def display_output(value):
-    return 'You have entered {}'.format(value)
+@app.callback(Output('output', 'children'), [Input('input', 'date')])
+def display_output(date):
+    return 'You have entered {}'.format(date)
 
 
 if __name__ == '__main__':

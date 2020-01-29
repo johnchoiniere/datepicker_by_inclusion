@@ -16,7 +16,8 @@
   "author": "John Choiniere <john.choiniere@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "ramda": "^0.26.1"
+    "ramda": "^0.26.1",
+    "react-datepicker": "^2.11.0"
   },
   "devDependencies": {
     "@babel/core": "^7.5.4",
