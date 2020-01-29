@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import DatePicker from 'react-datepicker';
-import { parseISO } from 'date-fns';
+import { parseISO, format } from 'date-fns';
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -13,16 +13,27 @@ import "react-datepicker/dist/react-datepicker.css";
  * which is editable by the user.
  */
 export default class DatepickerByInclusion extends Component {
+    constructor(props){
+      super(props)
+      this.state = {date: parseISO(this.props.date)};
+    };
+
+    handleChange = date => {
+        this.setState({
+            date: date
+        });
+        this.props.setProps({ date: format(this.state.date, 'yyyy-MM-dd')})
+    };
+
     render() {
         const {id, setProps} = this.props;
-        const date = Date.parse(this.props.date);
         const datesIncluded = this.props.datesIncluded.map(parseISO);
 
         return (
             <div id={id}>
                 ExampleComponent: &nbsp;
                 <DatePicker
-                    selected={date}
+                    selected={this.state.date}
                     onChange={
                         /*
                          * Send the new value to the parent component.
@@ -33,7 +44,8 @@ export default class DatepickerByInclusion extends Component {
                          * app server if a callback uses the modified prop as
                          * Input or State.
                          */
-                        e => setProps({ date: e.target.date })
+                        /*e => setProps({ date: e.target.date })*/
+                        this.handleChange
                     }
                     includeDates={datesIncluded}
                 />
