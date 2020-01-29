@@ -8,8 +8,7 @@ app = dash.Dash(__name__)
 app.layout = html.Div([
     datepicker_by_inclusion.DatepickerByInclusion(
         id='input',
-        value='my-value',
-        label='my-label'
+        value='my-value'
     ),
     html.Div(id='output')
 ])

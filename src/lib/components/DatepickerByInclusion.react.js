@@ -13,11 +13,11 @@ import "react-datepicker/dist/react-datepicker.css";
  */
 export default class DatepickerByInclusion extends Component {
     render() {
-        const {id, label, setProps, value} = this.props;
+        const {id, setProps, value} = this.props;
 
         return (
             <div id={id}>
-                ExampleComponent: {label}&nbsp;
+                ExampleComponent: &nbsp;
                 <input
                     value={value}
                     onChange={
@@ -45,11 +45,6 @@ DatepickerByInclusion.propTypes = {
      * The ID used to identify this component in Dash callbacks.
      */
     id: PropTypes.string,
-
-    /**
-     * A label that will be printed when this component is rendered.
-     */
-    label: PropTypes.string.isRequired,
 
     /**
      * The value displayed in the input.
