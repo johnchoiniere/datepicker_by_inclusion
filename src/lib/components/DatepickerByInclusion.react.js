@@ -15,7 +15,7 @@ import "react-datepicker/dist/react-datepicker.css";
 export default class DatepickerByInclusion extends Component {
     constructor(props){
       super(props)
-      this.state = {date: parseISO(this.props.date)};
+      this.state = {date: parseISO(this.props.date), datesIncluded: this.props.datesIncluded.map(parseISO)};
     };
 
     handleChange = date => {
@@ -29,14 +29,13 @@ export default class DatepickerByInclusion extends Component {
 
     render() {
         const {id, setProps} = this.props;
-        const datesIncluded = this.props.datesIncluded.map(parseISO);
 
         return (
             <div id={id}>
                 <DatePicker
                     selected={this.state.date}
                     onChange={this.handleChange}
-                    includeDates={datesIncluded}
+                    includeDates={this.state.datesIncluded}
                 />
             </div>
         );
