@@ -35,19 +35,7 @@ export default class DatepickerByInclusion extends Component {
             <div id={id}>
                 <DatePicker
                     selected={this.state.date}
-                    onChange={
-                        /*
-                         * Send the new value to the parent component.
-                         * setProps is a prop that is automatically supplied
-                         * by dash's front-end ("dash-renderer").
-                         * In a Dash app, this will update the component's
-                         * props and send the data back to the Python Dash
-                         * app server if a callback uses the modified prop as
-                         * Input or State.
-                         */
-                        /*e => setProps({ date: e.target.date })*/
-                        this.handleChange
-                    }
+                    onChange={this.handleChange}
                     includeDates={datesIncluded}
                 />
             </div>
