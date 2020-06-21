@@ -1,6 +1,6 @@
 {
   "name": "datepicker_by_inclusion",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Adapts react-datepicker for use in Dash, specifically to bring in the includeDates functionality",
   "main": "build/index.js",
   "scripts": {
